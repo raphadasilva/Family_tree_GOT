@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+  <head>
+    <title>A Game of Nodes : les alliances familiales chez les hautes maisons de Westeros</title>
+   
+
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.min.js"></script>
+    
+ <style type='text/css'>
+   
+html {
+    font-family: sans-serif; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+} 
+ 
+#chart {
+  margin-left:0px;
+  position:absolute;
+  background-image:url(fond_got.png);
+ 
+}
+
+   
+#conteneur {
+width:1380px;
+height:auto;
+ margin-top:0px;
+  margin-left:0px;
+ 
+}
+
+   
+circle.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+   -webkit-tap-highlight-color: transparent;
+}
+
+
+
+line.link {
+  stroke: #999;
+  stroke-opacity: .8;
+}
+
+.megatitre {
+  margin-left:10px;
+  width:auto;
+  font-family:Arial;
+  font-size:2.2em;
+  position:static;
+  margin-top:5px;
+}
+
+.titre_legende {
+  margin-left:810px;
+  width:500px;
+  font-family:Arial;
+  font-size:1em;
+  position:static;
+  margin-top:5px;
+}
+
+.texte_legende {
+  margin-left:810px;
+  width:500px;
+  font-family:Arial;
+  font-size:0.9em;
+  position:static;
+   margin-top:0px;
+}
+
+ .link {stroke:gray;
+ 	stroke-width:0.35;
+ 	}
+
+   
+   </style>
+   
+  </head>
+  
+  <body>
+
+
+<h1 class="megatitre">A Game of Nodes : les alliances familiales chez les hautes maisons de Westeros</h1>
+  	
+<div id="conteneur">
+ <div id="chart">
+ 
+ 	
+
+ 	
+ </div>
+ 
+ 	<h2 class="titre_legende" id="titre0">Les Premiers Hommes</h2>
+ 		<p class="texte_legende" id="texte0">Toutes les grandes familles de Westeros descendent d'eux.</p>
+ 	<h2 class="titre_legende" id="titre1">Un prestigieux b&acirc;tard</h2>
+ 		<p class="texte_legende" id="texte1">Le fondateur de la maison Baratheon, Orys, &eacute;tait le b&acirc;tard d'Aerion Targaryen et le demi-fr&egrave;re du premier monarque des Sept Royaumes, Aegon Ier. Jusqu'au d&eacute;but de la s&eacute;rie, le pouvoir est donc toujours li&eacute; &agrave; la maison Targaryen puisque Robert Baratheon en est un descendant quasi direct (sa grand-m&egrave;re &eacute;tant une Targaryen).</p>
+ 	<h2 class="titre_legende" id="titre2">Alli&eacute;s naturels</h2>
+ 		<p class="texte_legende" id="texte2">Le mariage de Maron Martell avec Daenerys Targaryen scelle &eacute;troitement le destin des deux maisons de Westeros. Apr&egrave;s l'assassinat d'Elia, belle-fille du Roi fou, les Martell sont plus que jamais des alli&eacute;s naturel des Targaryen.</p>
+ 	<h2 class="titre_legende" id="titre3">Puissance cosanguine</h2>
+ 		<p class="texte_legende" id="texte3">Aerys II Targaryen, surnomm&eacute; le "Roi fou", est le dernier de sa lign&eacute;e &agrave; avoir adopt&eacute; la cosanguinit&eacute; avec sa s&oelig;ur. Daenys et Gaemon Targaryen inaugur&egrave;rent cette habitude, qui permit aux Targaryen de garder la couronne supr&ecirc;me malgr&eacute; une guerre fratricide entre Rhaenyra et Ageon II.</p>
+ 	<h2 class="titre_legende" id="titre4">Greyjoy, seuls aux Fers</h2>
+ 		<p class="texte_legende" id="texte4">L'isolement g&eacute;ographique de Quellon Greyjoy sur les &Icirc;les de Fer le condamne &agrave; n'int&eacute;resser aucune grande famille de Westeros pour une alliance maritale.</p>
+ 	<h2 class="titre_legende" id="titre5">Des Tully bien mari&eacute;es</h2>
+ 		<p class="texte_legende" id="texte5">Hoster Tully est devenu, avec ses enfants, le lien f&eacute;d&eacute;rateur entre les maisons Arryn et Stark. Sa m&eacute;thode ? Avoir mari&eacute; ses filles Lysa et Catelyn &agrave; Jon Arryn et Eddard "Ned" Stark.</p>
+ 	<h2 class="titre_legende" id="titre6">L'imposteur Lannister</h2>
+ 		<p class="texte_legende" id="texte6">Joffrey Baratheon porte bien mal son nom. Il est en fait le b&acirc;tard de sa m&egrave;re Cersei et de son oncle Jaime. La mort de Robert Ier donne l'occasion aux Lannister d'avoir tous les pouvoirs. Mais la cruaut&eacute; de Joffrey et les rumeurs sur son sang vont plomber ce r&egrave;gne.</p>
+ 	<h2 class="titre_legende" id="titre7">La galaxie Stark</h2>
+ 		<p class="texte_legende" id="texte7">Benjen Stark, dit "le Fiel", est le p&egrave;re, le fils, le jumeau ou le fr&egrave;re de l'autre Benjen, surnomm&eacute; "le Miel". Cette incertitude illustre bien la mythologie Stark, dont on conna&icirc;t de nombreux rois sans savoir leur filiation.</p>
+ 	<h2 class="titre_legende" id="titre8">Une Tyrell opportuniste</h2>
+ 		<p class="texte_legende" id="texte8">Si Margaery Tyrell est bien la reine de quelque chose, c'est certainement de l'opportunisme. Apr&egrave;s avoir &eacute;pous&eacute; Renly Baratheon quand il &eacute;tait en position de force, elle &eacute;pouse le jeune roi Joffrey pour quelques heures. Mais pas de panique, elle se marie illico au petit fr&egrave;re Tommen apr&egrave;s le d&eacute;c&egrave;s de Joffrey. En oubliant de se m&eacute;fier de sa belle-m&egrave;re Cersei...</p>
+ 	<h2 class="titre_legende" id="titre9">Un bien ambitieux Baelish</h2>
+ 		<p class="texte_legende" id="texte9">Peter Baelish, dit "Littlefinger", est le seul conseiller politique de la p&eacute;riode &agrave; franchir le cap des mariages strat&eacute;giques. Apr&egrave;s avoir tu&eacute; Jon Arryn (et donc d&eacute;clench&eacute; toute l'intrigue), il se marie &agrave; sa veuve, Lysa Tully, pour la tuer ensuite.</p>
+</div>
+
+
+ 	
+
+
+
+<script>
+    
+var width = 800,
+    height = 900,
+    root,
+    json,
+    link,
+    labelBox,
+    linkedByIndex = {},
+    node;
+
+var force = d3.layout.force()
+    .charge(-30)
+    .linkDistance(function(d) { return (d.ldistance); })
+    .linkStrength(1)
+    .gravity(.07)
+    .size([width, height]);
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("family_tree_got.json", function(json) {
+  force
+      .nodes(json.nodes)
+      .links(json.links)
+      .start();
+
+  var link = svg.selectAll("line.link")
+      .data(json.links)
+      .enter()
+      .append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return Math.sqrt(d.value); })
+      .style("stroke", function(d) { return d.lcolor; });
+  
+
+ 
+
+  var node = svg.selectAll("circle.node")
+      .data(json.nodes)
+      .enter()
+      .append("circle")
+      .attr("class", "node")
+      .attr("r", 6)
+      .style("fill", function(d) { return d.color; })
+      .call(force.drag);
+
+      
+      
+  node.append("title")
+      .text(function(d) { return d.name; });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  });
+  
+
+	
+
+  
+});
+
+    
+    </script>
+    
+
+    
+  </body>
+</html>
